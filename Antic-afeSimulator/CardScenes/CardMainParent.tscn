@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5yaid4cdcxm"]
+
+[ext_resource type="Script" path="res://CardScenes/CardMainParent.gd" id="1_hfldo"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_1d4tg"]
+
+[node name="CardMainParent" type="Node2D"]
+modulate = Color(0.105882, 0.105882, 0.0588235, 1)
+self_modulate = Color(0.0745098, 0.0745098, 0.0745098, 1)
+texture_filter = 1
+scale = Vector2(200, 200)
+script = ExtResource("1_hfldo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_1d4tg")
