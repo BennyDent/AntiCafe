@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtpc2jirdtkal"]
+
+[ext_resource type="Script" uid="uid://c34ehyrpnb7so" path="res://CardScenes/admin_card_scene.gd" id="1_5jhkq"]
+
+[node name="AdminCardScene" type="Node2D"]
+script = ExtResource("1_5jhkq")
+
+[node name="FirsstAction" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "fdfdfdf
+"
+
+[node name="SecondAction" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AdditionalAction" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

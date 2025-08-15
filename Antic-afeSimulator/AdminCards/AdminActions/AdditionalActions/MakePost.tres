@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionText" load_steps=2 format=3 uid="uid://b73wwd11kv1mu"]
+
+[ext_resource type="Script" uid="uid://bh00jgt41777q" path="res://CardsClasses/CardData/ExtraData/ActionText.gd" id="1_yqv3a"]
+
+[resource]
+script = ExtResource("1_yqv3a")
+action_text = "Make post spend popularity"
+action_string = "PST.SP.POP"
+is_additional = true
+metadata/_custom_type_script = "uid://bh00jgt41777q"

@@ -1,29 +1,133 @@
 [gd_scene load_steps=4 format=3 uid="uid://coe8eqy63aben"]
 
-[ext_resource type="PackedScene" uid="uid://b5yaid4cdcxm" path="res://CardScenes/CardMainParent.tscn" id="1_wk3ks"]
-[ext_resource type="Script" uid="uid://cr3pgppdjxfmn" path="res://collision_shape_2d.gd" id="2_esir1"]
+[ext_resource type="Script" uid="uid://dhtl17vhqc0gv" path="res://CardScenes/HandMain.gd" id="1_lost3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3vym"]
-size = Vector2(856, 244.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qkyh"]
+size = Vector2(935, 271.125)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="GDScript" id="GDScript_8hhue"]
+script/source = "extends CollisionShape2D
+var positions_array = []
+@export var cards_scale =150;
+var dictionary = {1: 5,2: 5, 3:5, 4:4, 5:4, 6: 3,}
+var rotations_positions = [-0.040, -0.030,  -0.020, -0.010, -0.0, 0.010, 0.020, 0.030, 0.040, 0.050  ]
+@export  var first = 100.00;
+@export var shift = 50.00;
+var first_index: int;
+var last_index: int;
+var played_card_index: int;
+var is_admin: bool=false;
+signal card_played
+enum HandIndex{
+FIRST,
+SECOND,
+THIRD,
+FOURTH
+}
+@onready var first_preload = preload(\"res://CardStatusresources/First.tres\");
+@onready var second_preload = preload(\"res://CardStatusresources/Second.tres\");
+@onready var card_preload = preload(\"res://CardScenes/CardMainParent.tscn\");
+var hand_index: HandIndex
+func ReturnHandIndex(hand_index):
+
+	var result = get_children().filter(func(a): return a.hand_index==hand_index);
+	if result.size()>0:
+		return result[0]
+	else:
+		return;
+
+
+func InitializeCardsStart(set_hand_index: int):
+	
+	var cards_array: Array;
+	hand_index = set_hand_index;
+	match hand_index:
+		HandIndex.FIRST:
+			var  first =  ResourceLoader.load(\"res://CardStatusresources/First.tres\");
+			print(first);
+			Cardsinitialization(first.hand);
+			
+			
+		HandIndex.SECOND:
+			pass
+	
+
+func Cardsinitialization(cards: Array):
+	var start = dictionary[cards.size()];
+	first_index = start;
+	last_index = start+ cards.size();
+	print(cards[0].first_action.action_text)
+	for  i in range(cards.size()):
+		print(cards[i].first_action.action_text)
+		var to_change = card_preload.instantiate();
+		add_child(to_change);
+		to_change.card_data = cards[i];
+		print(cards[i].card_type);
+		to_change.set_draggable.connect(_on_emit_signal);
+		to_change.move_card.connect(_on_card_move);
+		to_change.start_position_x = positions_array[start+i];
+		to_change.global_position.x = positions_array[start+i];
+		to_change.hand_index = start+i;
+		to_change.rotation =  rotations_positions[start+i];
+		to_change.shape_size = get_shape().size;
+		to_change.played.connect(_on_played)
+		to_change.z_index = i;
+		to_change.area_size_y = 314.00;
+func SetHand(data, is_new_admin):
+	is_admin = is_new_admin;
+	
+
+
+func _ready():
+	for i in range(12):
+		positions_array.append((float((i+1)*cards_scale)));
+	InitializeCardsStart(0);
+func _on_card_move(from_hand_index, to_hand_index):
+	if(from_hand_index> to_hand_index):
+		if(from_hand_index>first_index):
+			moving_hand(from_hand_index, from_hand_index-1, false);
+			moving_hand(to_hand_index, to_hand_index+1, true);
+	elif(from_hand_index< to_hand_index):
+		if(from_hand_index<last_index):
+			moving_hand(from_hand_index, from_hand_index+1, false)
+			moving_hand(to_hand_index, to_hand_index-1, true)
+
+func moving_hand(hand_index, int_to_move, is_move):
+	var to_move = ReturnHandIndex(hand_index);
+	if(is_move):
+		to_move.start_x_motion(positions_array[int_to_move])
+	to_move.start_position_x = positions_array[int_to_move];
+	to_move.hand_index = int_to_move;
+
+
+
+func SetCardsVisibility(input: bool):
+	for child in get_children():
+		child.SetVisible(input);
+
+
+
+func _on_emit_signal(hand_index, is_dragged):
+	var results = get_children();
+	
+	for i in range(results.size()):
+		if results[i].hand_index != hand_index:
+			results[i].is_draggable = is_dragged;
+		
+func _on_played(index:int, card_data: CardData):
+	print(\"played2\")
+	played_card_index = index;
+	card_played.emit(card_data)
+"
+
+[node name="Hand" type="Node2D"]
+script = ExtResource("1_lost3")
 
 [node name="Area2D" type="Area2D" parent="."]
+input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(564, 523.25)
-shape = SubResource("RectangleShape2D_d3vym")
-script = ExtResource("2_esir1")
+position = Vector2(599, 508)
+shape = SubResource("RectangleShape2D_0qkyh")
+script = SubResource("GDScript_8hhue")
 cards_scale = 100
-
-[node name="Main" parent="Area2D/CollisionShape2D" instance=ExtResource("1_wk3ks")]
-modulate = Color(1, 0.219608, 1, 1)
-self_modulate = Color(1, 0.137255, 1, 1)
-position = Vector2(1, 5)
-
-[node name="Main2" parent="Area2D/CollisionShape2D" instance=ExtResource("1_wk3ks")]
-position = Vector2(-566, -530.5)
-
-[node name="Main3" parent="Area2D/CollisionShape2D" instance=ExtResource("1_wk3ks")]
-
-[node name="Main4" parent="Area2D/CollisionShape2D" instance=ExtResource("1_wk3ks")]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AdminCardData" load_steps=6 format=3 uid="uid://cmu7xhtq28noq"]
+
+[ext_resource type="Resource" uid="uid://b73wwd11kv1mu" path="res://AdminCards/AdminActions/AdditionalActions/MakePost.tres" id="1_53umq"]
+[ext_resource type="Resource" uid="uid://811db7h82jer" path="res://AdminCards/AdminActions/BasicActions/Clean.tres" id="1_s7tqw"]
+[ext_resource type="Script" uid="uid://bor2h70p4kt2i" path="res://CardsClasses/CardData/AdminCardData.gd" id="1_xye5n"]
+[ext_resource type="Resource" uid="uid://bbsbaxscs72j7" path="res://AdminCards/AdminActions/BasicActions/Speak.tres" id="3_53umq"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_53umq"]
+
+[resource]
+script = ExtResource("1_xye5n")
+first_action = ExtResource("1_s7tqw")
+second_action = ExtResource("3_53umq")
+additional_action = ExtResource("1_53umq")
+is_rest = false
+card_image = SubResource("ImageTexture_53umq")
+metadata/_custom_type_script = "uid://bor2h70p4kt2i"

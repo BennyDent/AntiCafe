@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionText" load_steps=2 format=3 uid="uid://bbsbaxscs72j7"]
+
+[ext_resource type="Script" uid="uid://bh00jgt41777q" path="res://CardsClasses/CardData/ExtraData/ActionText.gd" id="1_5h6gi"]
+
+[resource]
+script = ExtResource("1_5h6gi")
+action_text = "Speak to guest in choosed location"
+action_string = "SPEAK"
+is_additional = false
+metadata/_custom_type_script = "uid://bh00jgt41777q"

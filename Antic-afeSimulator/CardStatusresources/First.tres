@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AdminCardStatus" load_steps=4 format=3 uid="uid://dtd01nbckpmkd"]
+
+[ext_resource type="Script" uid="uid://h5v65h01rch1" path="res://CardsClasses/AdminCardStatus.gd" id="1_fftv1"]
+[ext_resource type="Script" uid="uid://bor2h70p4kt2i" path="res://CardsClasses/CardData/AdminCardData.gd" id="1_iuesx"]
+[ext_resource type="Resource" uid="uid://cmu7xhtq28noq" path="res://AdminCards/FirstAction.tres" id="2_b8iio"]
+
+[resource]
+script = ExtResource("1_fftv1")
+hand = Array[ExtResource("1_iuesx")]([ExtResource("2_b8iio")])
+discard = Array[ExtResource("1_iuesx")]([])
+metadata/_custom_type_script = "uid://h5v65h01rch1"

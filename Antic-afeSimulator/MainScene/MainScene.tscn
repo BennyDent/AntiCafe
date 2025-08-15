@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://butsnsdx8t7t"]
+
+[ext_resource type="Script" uid="uid://cgqffbcwy1yf2" path="res://MainScene/MainScene.gd" id="1_dbufk"]
+[ext_resource type="Script" uid="uid://dd38ogydajjvk" path="res://MainScene/InterfaceController.gd" id="2_w4t61"]
+[ext_resource type="PackedScene" uid="uid://bqtu5wqmkhq1c" path="res://AdminActionChoise.tscn" id="3_w4t61"]
+[ext_resource type="PackedScene" uid="uid://coe8eqy63aben" path="res://CardScenes/Hand.tscn" id="4_f4754"]
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_dbufk")
+
+[node name="AdminCardController" type="Node2D" parent="."]
+script = ExtResource("2_w4t61")
+
+[node name="Hand" parent="." instance=ExtResource("4_f4754")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+offset = Vector2(10, 10)
+transform = Transform2D(1, 0, 0, 1, 10, 10)
+follow_viewport_enabled = true
+
+[node name="AdminActionChoice" parent="CanvasLayer" instance=ExtResource("3_w4t61")]
+anchor_left = 0.162
+anchor_top = 0.15
+anchor_right = 0.861
+anchor_bottom = 0.613

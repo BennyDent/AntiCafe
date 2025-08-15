@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AdminCardStatus" load_steps=2 format=3 uid="uid://bmsxwhvfptpk7"]
+
+[ext_resource type="Script" uid="uid://h5v65h01rch1" path="res://CardsClasses/AdminCardStatus.gd" id="1_y36xq"]
+
+[resource]
+script = ExtResource("1_y36xq")
+metadata/_custom_type_script = "uid://h5v65h01rch1"

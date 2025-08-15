@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ActionText" load_steps=2 format=3 uid="uid://811db7h82jer"]
+
+[ext_resource type="Script" uid="uid://bh00jgt41777q" path="res://CardsClasses/CardData/ExtraData/ActionText.gd" id="1_guq4j"]
+
+[resource]
+script = ExtResource("1_guq4j")
+action_text = "Clean one   locatio and replenish supplies"
+action_string = "CLEAN"
+is_additional = false
+metadata/_custom_type_script = "uid://bh00jgt41777q"
