@@ -117,7 +117,7 @@ func _on_emit_signal(hand_index, is_dragged):
 func _on_played(index:int, card_data: CardData):
 	print(\"played2\")
 	played_card_index = index;
-	card_played.emit(card_data)
+	card_played.emit(card_data, hand_index)
 "
 
 [node name="Hand" type="Node2D"]

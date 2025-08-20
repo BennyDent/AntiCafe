@@ -25,7 +25,7 @@ var is_change_x: bool = false;
 var x_destination: float;
 var is_timeout: bool= false;
 var is_draggable = true;
-var is_dragged: bool = true:
+var is_dragged: bool = false:
 
 	get:
 		return is_dragged;

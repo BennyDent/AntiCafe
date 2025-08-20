@@ -1,6 +1,11 @@
 extends Control
 var is_timer: bool;
-var timer: float = 50.00
+var timer: float = 5.00
+signal action_selected
+@onready var strong =$"MarginContainer/PanelContainer/BoxContainer/MarginContainer/Strong Action/Additionoal";
+@onready var additional=$"MarginContainer/PanelContainer/BoxContainer/MarginContainer/Strong Action/Main";
+@onready var first=$"MarginContainer/PanelContainer/BoxContainer/MarginContainer2/VBoxContainer/FirstAction";
+@onready var second=$"MarginContainer/PanelContainer/BoxContainer/MarginContainer2/VBoxContainer/SecondAction";
 var visible_setter:
 	set(input):
 		if(input):
@@ -23,7 +28,10 @@ var first_margin_container: bool= false:
 	get:
 		return first_margin_container
 func _ready():
+	mouse_filter = Control.MOUSE_FILTER_PASS
 	visible = false;
+	$"MarginContainer/PanelContainer/BoxContainer/MarginContainer".set_focus.connect(set_focus_1)
+	$MarginContainer/PanelContainer/BoxContainer/MarginContainer2.set_focus.connect(set_focus_2)
 
 
 func _process(delta):
@@ -39,27 +47,42 @@ func _process(delta):
 			print("choosed")
 			
 
+
+func action_choosen():
+	var action;
+	if(first_margin_container==true and second_margin_container==false):
+		action = {"type": "strong", 1:strong.data.action_string,2: additional.data.action_string}
+	elif(first_margin_container==false and second_margin_container==true):
+		action = {"type": "strong", 1:first.data.action_string,2: second.data.action_string}
+	action_selected.emit(action);
+
+
 func setCardData(set_data: AdminCardData):
 	print(3434)
 	visible_setter = true;
-	$"MarginContainer/PanelContainer/BoxContainer/MarginContainer/Strong Action/Additionoal".data =set_data.additional_action;
-	$"MarginContainer/PanelContainer/BoxContainer/MarginContainer/Strong Action/Main".data = set_data.first_action
-	$"MarginContainer/PanelContainer/BoxContainer/MarginContainer2/VBoxContainer/FirstAction".data = set_data.first_action
-	$"MarginContainer/PanelContainer/BoxContainer/MarginContainer2/VBoxContainer/SecondAction".data = set_data.second_action
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	strong.data =set_data.additional_action;
+	additional.data = set_data.first_action
+	first.data = set_data.first_action
+	second.data = set_data.second_action
 	
 
+func set_focus_1(input: bool):
+	
+	if input:
+		if(second_margin_container== false):
+			first_margin_container = true;
+	else:
+		first_margin_container = false;
+	
+func set_focus_2(input: bool):
+	
+	if input:
+		if(first_margin_container== false):
+			second_margin_container = true;
+	else:
+		second_margin_container = false;
 
-
-func _on_margin_container_2_mouse_entered() -> void:
-	print("bbbbb")
-	if(first_margin_container== false):
-		first_margin_container = true; # Replace with function body.
-
-
-func _on_margin_container_mouse_entered() -> void:
-	print("bbbbb")
-	if(second_margin_container== false):
-		second_margin_container = true; # Replace with function body.
 
 
 func _on_margin_container_mouse_exited() -> void:

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqtu5wqmkhq1c"]
+[gd_scene load_steps=5 format=3 uid="uid://bqtu5wqmkhq1c"]
 
 [ext_resource type="Script" uid="uid://cl0tmde8keylr" path="res://admin_action_choise.gd" id="1_qmeby"]
+[ext_resource type="Script" uid="uid://bd7k4u3n8385g" path="res://MarginContainer.gd" id="2_h4ugp"]
 [ext_resource type="Script" uid="uid://dmcjrwyaqb6vo" path="res://main.gd" id="2_puh7r"]
 [ext_resource type="Script" uid="uid://otvyklkchqld" path="res://panel_container.gd" id="3_lcwtf"]
 
@@ -40,6 +41,7 @@ theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 6
+script = ExtResource("2_h4ugp")
 
 [node name="Strong Action" type="VBoxContainer" parent="MarginContainer/PanelContainer/BoxContainer/MarginContainer"]
 layout_mode = 2
@@ -76,6 +78,7 @@ theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 6
+script = ExtResource("2_h4ugp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/BoxContainer/MarginContainer2"]
 layout_mode = 2
@@ -103,8 +106,3 @@ vertical_alignment = 1
 self_modulate = Color(0.334987, 0.330511, 0.412554, 1)
 layout_mode = 2
 script = ExtResource("3_lcwtf")
-
-[connection signal="mouse_entered" from="MarginContainer/PanelContainer/BoxContainer/MarginContainer" to="." method="_on_margin_container_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/PanelContainer/BoxContainer/MarginContainer" to="." method="_on_margin_container_mouse_exited"]
-[connection signal="mouse_entered" from="MarginContainer/PanelContainer/BoxContainer/MarginContainer2" to="." method="_on_margin_container_2_mouse_entered"]
-[connection signal="mouse_exited" from="MarginContainer/PanelContainer/BoxContainer/MarginContainer2" to="." method="_on_margin_container_2_mouse_exited"]

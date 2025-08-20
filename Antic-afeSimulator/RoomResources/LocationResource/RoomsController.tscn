@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnvadspk3xpqc"]
+
+[ext_resource type="Script" uid="uid://bayk1oox7qtwv" path="res://RoomResources/LocationResource/rooms_controller.gd" id="1_xgjoy"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xgjoy")
