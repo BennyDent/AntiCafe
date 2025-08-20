@@ -1,6 +1,6 @@
 extends Control
-var is_timer: bool;
-var timer: float = 5.00
+var is_timer: bool= false;
+var timer: float = 100.00
 signal action_selected
 @onready var strong =$"MarginContainer/PanelContainer/BoxContainer/MarginContainer/Strong Action/Additionoal";
 @onready var additional=$"MarginContainer/PanelContainer/BoxContainer/MarginContainer/Strong Action/Main";
@@ -10,7 +10,7 @@ var visible_setter:
 	set(input):
 		if(input):
 			is_timer = true;
-			timer = 5.00;
+			timer = 20.00;
 			mouse_filter  = MOUSE_FILTER_STOP;
 		visible_setter = input;
 		visible = input;
@@ -41,10 +41,13 @@ func _process(delta):
 			is_timer = false;
 			mouse_filter = MOUSE_FILTER_IGNORE
 	if Input.is_action_pressed("left_mouse"):
+		if(is_timer):
+			print(timer)
+			return;
 		if(first_margin_container):
-			print("choosed");
+			action_choosen()
 		if(second_margin_container):
-			print("choosed")
+			action_choosen()
 			
 
 
@@ -59,7 +62,9 @@ func action_choosen():
 
 func setCardData(set_data: AdminCardData):
 	print(3434)
-	visible_setter = true;
+	visible = true;
+	is_timer = true;
+	timer = 0.50
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	strong.data =set_data.additional_action;
 	additional.data = set_data.first_action

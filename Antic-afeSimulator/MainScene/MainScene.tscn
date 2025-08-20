@@ -12,10 +12,10 @@ script = ExtResource("1_dbufk")
 
 [node name="RoomsController" parent="." instance=ExtResource("2_mmud7")]
 
-[node name="Hand" parent="." instance=ExtResource("4_f4754")]
-
 [node name="AdminCardController" type="Node2D" parent="."]
 script = ExtResource("2_w4t61")
+
+[node name="Hand" parent="AdminCardController" instance=ExtResource("4_f4754")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 offset = Vector2(10, 10)

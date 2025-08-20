@@ -15,7 +15,7 @@ func _ready():
 func initializeAction(action_string, worker_index):
 	character_pawn.visible = true;
 	visible = true;
-	action_label = action_string
+	action_label.text = action_string
 #нстроить выбор скрипта в зависимости от рабочего
 
 

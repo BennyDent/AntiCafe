@@ -8,7 +8,6 @@ func _process(delta):
 		set_focus.emit(true);
 	else:
 		set_focus.emit(false);
-		print(false)
 
 
 		

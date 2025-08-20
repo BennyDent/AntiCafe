@@ -12,6 +12,15 @@ grow_vertical = 2
 script = ExtResource("1_w8i3b")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.306
+anchor_top = 0.747
+anchor_right = 0.685
+anchor_bottom = 1.0
+offset_left = -7.51202
+offset_top = -9.05603
+offset_right = 6.87994
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
