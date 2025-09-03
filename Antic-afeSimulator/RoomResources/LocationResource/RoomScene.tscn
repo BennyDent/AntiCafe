@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ck004rqndqige"]
+[gd_scene load_steps=5 format=3 uid="uid://ck004rqndqige"]
 
 [ext_resource type="Script" uid="uid://sw8ikc0c1o04" path="res://RoomResources/LocationResource/room_scene.gd" id="1_farv3"]
 [ext_resource type="Script" uid="uid://cl75wo1gc623" path="res://RoomResources/LocationResource/area_2d.gd" id="2_625t8"]
-[ext_resource type="Texture2D" uid="uid://tmh2v830v4s3" path="res://9666685b9268675a89445ef04e898ba4 (2).png" id="3_x8kgj"]
-[ext_resource type="Script" uid="uid://d2tgw22ew7y1c" path="res://RoomResources/LocationResource/red_pawn.gd" id="4_rgsp1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_625t8"]
 size = Vector2(19.6, 19.8)
@@ -11,25 +9,20 @@ size = Vector2(19.6, 19.8)
 [sub_resource type="CanvasTexture" id="CanvasTexture_vyh02"]
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(279, 164)
-scale = Vector2(6, 5)
 script = ExtResource("1_farv3")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_625t8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 20)
 shape = SubResource("RectangleShape2D_625t8")
 debug_color = Color(0, 0.6, 0.701961, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 self_modulate = Color(0.0687983, 0.0687983, 0.0687983, 1)
-scale = Vector2(20, 20)
+position = Vector2(-0.333332, -0.700001)
+scale = Vector2(19.3333, 21.4)
 texture = SubResource("CanvasTexture_vyh02")
 
-[node name="RedPawn" type="Sprite2D" parent="."]
-position = Vector2(0.666667, 4.2)
-scale = Vector2(0.152381, 0.14)
-texture = ExtResource("3_x8kgj")
-script = ExtResource("4_rgsp1")
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

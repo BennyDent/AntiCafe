@@ -1,54 +1,38 @@
-[gd_resource type="Resource" script_class="RoomsArray" load_steps=6 format=3 uid="uid://brkkx4mlmmykn"]
+[gd_resource type="Resource" script_class="RoomsArrayClass" load_steps=6 format=3 uid="uid://clpx6b5gocbll"]
 
-[ext_resource type="Script" uid="uid://dq2e25gx641wq" path="res://RoomResources/LocationResource/Scripts/RoomClass.gd" id="1_jhu0h"]
+[ext_resource type="Script" uid="uid://bhgamo4lphlw1" path="res://RoomResources/LocationResource/Scripts/BasiccRoom.gd" id="1_jhu0h"]
 [ext_resource type="Script" uid="uid://3n1gr8gnnt" path="res://RoomResources/LocationResource/Scripts/RoomsArray.gd" id="2_27o07"]
-
-[sub_resource type="Resource" id="Resource_jhu0h"]
-script = ExtResource("1_jhu0h")
-room_index = Array[int]([3, 2])
-is_action = true
-is_admin = false
-is_toiler = false
-scale_x = 8.0
-scale_y = 8.0
-rotation = 0.0
-global_position_x = 279.0
-global_position_y = 164.0
-shape_size_x = 19.8
-shape_size_y = 19.8
-metadata/_custom_type_script = "uid://dq2e25gx641wq"
+[ext_resource type="Script" uid="uid://dq2e25gx641wq" path="res://RoomResources/LocationResource/Scripts/RoomClass.gd" id="2_bs3h7"]
 
 [sub_resource type="Resource" id="Resource_27o07"]
-script = ExtResource("1_jhu0h")
-room_index = Array[int]([0, 0])
-is_action = false
+script = ExtResource("2_bs3h7")
+room_index = 1
 is_admin = false
+shape_size = Vector2(20, 20)
+pawn_scale = Vector2(2, 2)
 is_toiler = false
-scale_x = 2.0
-scale_y = 6.0
+scale_x = 5.0
+scale_y = 5.0
 rotation = 0.0
-global_position_x = 220.0
-global_position_y = 300.0
-shape_size_x = 19.6
-shape_size_y = 19.8
+global_position_x = 200.0
+global_position_y = 200.0
 metadata/_custom_type_script = "uid://dq2e25gx641wq"
 
 [sub_resource type="Resource" id="Resource_bs3h7"]
-script = ExtResource("1_jhu0h")
-room_index = Array[int]([2, 2])
-is_action = true
+script = ExtResource("2_bs3h7")
+room_index = 2
 is_admin = false
+shape_size = Vector2(20, 20)
+pawn_scale = Vector2(2, 2)
 is_toiler = false
-scale_x = 6.0
+scale_x = 5.0
 scale_y = 5.0
 rotation = 0.0
-global_position_x = 300.0
-global_position_y = 340.0
-shape_size_x = 19.6
-shape_size_y = 19.8
+global_position_x = 50.0
+global_position_y = 50.0
 metadata/_custom_type_script = "uid://dq2e25gx641wq"
 
 [resource]
 script = ExtResource("2_27o07")
-rooms = Array[ExtResource("1_jhu0h")]([SubResource("Resource_jhu0h"), SubResource("Resource_27o07"), SubResource("Resource_bs3h7")])
+rooms = Array[ExtResource("1_jhu0h")]([SubResource("Resource_27o07"), SubResource("Resource_bs3h7")])
 metadata/_custom_type_script = "uid://3n1gr8gnnt"

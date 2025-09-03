@@ -28,7 +28,7 @@ var first_margin_container: bool= false:
 	get:
 		return first_margin_container
 func _ready():
-	mouse_filter = Control.MOUSE_FILTER_PASS
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	visible = false;
 	$"MarginContainer/PanelContainer/BoxContainer/MarginContainer".set_focus.connect(set_focus_1)
 	$MarginContainer/PanelContainer/BoxContainer/MarginContainer2.set_focus.connect(set_focus_2)
@@ -56,8 +56,10 @@ func action_choosen():
 	if(first_margin_container==true and second_margin_container==false):
 		action = {"type": "strong", 1:strong.data.action_string,2: additional.data.action_string}
 	elif(first_margin_container==false and second_margin_container==true):
-		action = {"type": "strong", 1:first.data.action_string,2: second.data.action_string}
+		action = {"type": "usual", 1:first.data.action_string,2: second.data.action_string}
 	action_selected.emit(action);
+	visible = false;
+	mouse_filter = MOUSE_FILTER_IGNORE
 
 
 func setCardData(set_data: AdminCardData):

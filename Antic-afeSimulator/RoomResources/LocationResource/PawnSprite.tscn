@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdd43utkwy6sk"]
+
+[ext_resource type="Texture2D" uid="uid://tmh2v830v4s3" path="res://9666685b9268675a89445ef04e898ba4 (2).png" id="1_lfpmk"]
+[ext_resource type="Script" uid="uid://d0328m2ui8eq4" path="res://RoomResources/LocationResource/pawn_sprite.gd" id="2_synxg"]
+
+[node name="PawnSprite" type="Sprite2D"]
+texture = ExtResource("1_lfpmk")
+script = ExtResource("2_synxg")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbba7me16nea8"]
+
+[ext_resource type="Script" uid="uid://b1ix1kxanovyy" path="res://RoomResources/LocationResource/coridor_scene.gd" id="1_iry4y"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_iry4y"]
+specular_color = Color(0.0383972, 0.0383972, 0.0383972, 1)
+
+[node name="CoridorScene" type="Node2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_iry4y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.0430392, 0.0430392, 0.0430392, 1)
+scale = Vector2(20, 20)
+texture = SubResource("CanvasTexture_iry4y")

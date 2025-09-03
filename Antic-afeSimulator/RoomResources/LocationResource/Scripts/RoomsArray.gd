@@ -1,5 +1,5 @@
 extends Resource
 
 
-class_name RoomsArray
-@export var rooms: Array[RoomClass]
+class_name RoomsArrayClass
+@export var rooms: Array[BasicRoom]

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnvadspk3xpqc"]
+[gd_scene load_steps=3 format=3 uid="uid://dnvadspk3xpqc"]
 
 [ext_resource type="Script" uid="uid://bayk1oox7qtwv" path="res://RoomResources/LocationResource/rooms_controller.gd" id="1_xgjoy"]
+[ext_resource type="Script" uid="uid://bawt1be8rh3iu" path="res://RoomResources/LocationResource/pawns.gd" id="2_5pxsj"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_xgjoy")
+
+[node name="Pawns" type="Node2D" parent="."]
+script = ExtResource("2_5pxsj")
