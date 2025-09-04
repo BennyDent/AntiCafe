@@ -16,11 +16,11 @@ func _ready():
 	$AdminCardController.choose_action.connect($CanvasLayer/AdminActionChoice.setCardData)
 	$CanvasLayer/AdminActionChoice.action_selected.connect($AdminCardController._on_Action_Choosen)
 	$AdminCardController.choose_location.connect(_on_choose_location);
-	$CanvasLayer/LocationChoose.location_choosen.connect();
+	#$CanvasLayer/LocationChoose.location_choosen.connect();
 	$CanvasLayer/LocationChoose.set_choosen.connect($RoomsController.SetLocationCardChoice)
 	$RoomsController.set_pawn_visible.connect($CanvasLayer/LocationChoose.setActionPawnVisible)
 	$CanvasLayer/LocationChoose.location_choosen.connect(_on_action_location_choosen)
-
+	$RoomsController/Pawns.visible_setter.connect($CanvasLayer/LocationChoose._on_visible_setter)
 func _on_choose_location(array:Array[String], worker_index: int):
 	$CanvasLayer/AdminActionChoice.visible = false;
 	$CanvasLayer/AdminActionChoice.mouse_filter = Control.MOUSE_FILTER_IGNORE

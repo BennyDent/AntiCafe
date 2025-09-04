@@ -1,6 +1,6 @@
 extends Node2D
 
-
+signal visible_setter
 
 func ReturnActionIndex():
 	for child in get_children():
@@ -16,6 +16,8 @@ func SetVisible(input: bool,  type: int, worker: int ):
 		print(children.texture_status.pawn_status,children.texture_status.worker_status)
 		if children.texture_status.pawn_status==type and children.texture_status.worker_status==worker:
 			children.visible = input;
+			if input ==false:
+				visible_setter.emit();
 			print("shit", children.visible)
 		
 		
@@ -30,4 +32,4 @@ func SetVisibleAt(input: bool, index:int, type: int, worker:int ):
 				print("shit", children.visible)
 			else:
 				children.visible= false;
-		
+				visible_setter.emit()

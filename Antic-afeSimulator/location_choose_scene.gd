@@ -10,6 +10,9 @@ enum SpriteType{
 }
 
 
+func _on_visible_setter():
+	for child in $HBoxContainer.get_children():
+		child.SetPawnVisible(true);
 
 
 
